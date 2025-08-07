@@ -1,4 +1,8 @@
-{ pkgs, nix-darwin, ... }:
+{
+  pkgs,
+  nix-darwin,
+  ...
+}@args:
 {
   nixpkgs.hostPlatform = {
     system = "aarch64-darwin";
@@ -7,59 +11,7 @@
   system.primaryUser = "korben";
   system.stateVersion = 6;
 
-  environment.systemPackages = [
-    pkgs.wezterm
-    pkgs.vim
-    pkgs.lsd
-    pkgs.neovim # The best text editor
-    pkgs.zed-editor # GUI Editor, only use when absolutely necessary
-    pkgs.pandoc
-    pkgs.sketchybar
-    pkgs.amfora
-    pkgs.git-filter-repo
-    pkgs.aerospace # Tiling WM
-    pkgs.opentofu # IaC
-    # Nix
-    pkgs.nixfmt-rfc-style
-    pkgs.nixd
-    # Python things...
-    pkgs.python312
-    pkgs.python312Packages.python-lsp-server
-    pkgs.pipx
-    pkgs.uv
-    pkgs.ruff
-    # pkgs.ruff-lsp
-    # Useful tools
-    pkgs.pinentry_mac
-    pkgs.bacon
-    pkgs.bat # Better cat
-    pkgs.dust # Better du
-    # pkgs.atuin # Better shell history
-    pkgs.sqlite
-    pkgs.git
-    pkgs.gh
-    pkgs.gnupg
-    pkgs.podman
-    pkgs.podman-tui
-    pkgs.comma
-    pkgs.tree
-    pkgs.xh # curl, but nicer
-    pkgs.just # just do it
-    # pkgs.openocd
-    # BEAM
-    pkgs.gleam
-    pkgs.elixir
-    # Haskell
-    # pkgs.haskell-language-server
-    # pkgs.ghc # Glasgow Haskell Compiler
-    # pkgs.haskell.compiler.ghc947
-    # pkgs.haskell.compiler.ghc963
-    # (pkgs.haskell-language-server.override {
-    #   supportedGhcVersions = [
-    #     "963"
-    #   ];
-    pkgs.nh
-  ];
+  environment.systemPackages = import ./packages.nix args;
 
   # Enable touch-id authentication for sudo
   security.pam.services.sudo_local = {
