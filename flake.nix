@@ -20,8 +20,6 @@
       self,
       nix-darwin,
       nixpkgs,
-      home-manager,
-      stylix,
       ...
     }:
 
@@ -42,10 +40,6 @@
           nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
           # Set Git commit hash for darwin-version.
           system.configurationRevision = self.rev or self.dirtyRev or null;
-
-          # Used for backwards compatibility, please read the changelog before changing.
-          # $ darwin-rebuild changelog
-          # system.stateVersion = 5;
         };
     in
     {
@@ -57,15 +51,8 @@
 
         # modules = [ configuration ];
         modules = [
-          ./configuration.nix
-          # stylix.darwinModules.stylix
-          ./brew.nix
-          # inputs.home-manager.darwinModules.home-manager
-          # {
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-          #   home-manager.users.korben = import ./home.nix;
-          # }
+          ./laptop/configuration.nix
+          ./laptop/brew.nix
         ];
         # nixpkgs.config.allowUnfree = true;
       };
