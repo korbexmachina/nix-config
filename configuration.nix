@@ -122,7 +122,7 @@
         # };
 
         # Shortcuts
-        alt-w = "/run/current-system/sw/bin/wezterm";
+        # alt-w = "/run/current-system/sw/bin/wezterm";
       };
       exec-on-workspace-change = [
         "/bin/bash"
@@ -144,11 +144,4 @@
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
-
-  # Enable alternative shell support in nix-darwin.
-  # programs.fish.enable = true;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  # system.stateVersion = 5;
 }

@@ -31,6 +31,7 @@ with pkgs;
   sqlite
   git
   gh
+  lazygit
   gnupg
   podman
   podman-tui
@@ -54,4 +55,8 @@ with pkgs;
   nh
   tmux
   starship
+  fastfetch
+  texliveFull # LaTeX
+  vesktop # Discord client
+  zathura # PDF Viewer
 ]
