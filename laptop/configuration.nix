@@ -19,16 +19,10 @@
     reattach = true;
     touchIdAuth = true;
   };
-  system.defaults.NSGlobalDomain._HIHideMenuBar = true;
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
 
-  # stylix = {
-  #   enable = true;
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  # };
-  #
-  # Create /etc/zshrc that loads the nix-darwin environment.
+  # Hide menu bar for sketchybar
+  system.defaults.NSGlobalDomain._HIHideMenuBar = true;
+
   programs = {
     gnupg.agent.enable = true;
     zsh.enable = true; # default shell on catalina
@@ -109,21 +103,8 @@
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#mode
         alt-shift-semicolon = "mode service";
-        # workspace-to-monitor-force-assignment = {
-        #   "1" = "^built-in retina display$";
-        #   "2" = "^built-in retina display$";
-        #   "3" = "^built-in retina display$";
-        #   "4" = "^built-in retina display$";
-        #   "5" = "^built-in retina display$";
-        #   "6" = "secondary";
-        #   "7" = "secondary";
-        #   "8" = "secondary";
-        #   "9" = "secondary";
-        # };
-
-        # Shortcuts
-        # alt-w = "/run/current-system/sw/bin/wezterm";
       };
+      # Update focused workspace for sketchybar
       exec-on-workspace-change = [
         "/bin/bash"
         "-c"
@@ -139,8 +120,6 @@
     order = "above";
   };
   services.sketchybar.enable = true;
-
-  # system.defaults.spaces.spans-displays = true;
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
