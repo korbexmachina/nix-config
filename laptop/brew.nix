@@ -9,6 +9,7 @@
       "xcodegen"
       "atuin"
       "imagemagick"
+      "rbenv"
     ];
     casks = [
       # Productivity
@@ -26,14 +27,18 @@
       "karabiner-elements"
       "imageoptim"
       "rawtherapee"
+      "handbrake-app"
+      "ghostty"
 
       # VPN
-      "mullvadvpn"
+      "mullvad-vpn"
 
       # Browsers
       "mullvad-browser"
       "firefox"
       "firefox@developer-edition"
+      "google-chrome"
+      "tor-browser"
 
       # Other
       "supertuxkart"
@@ -51,6 +56,9 @@
 
       # CAD
       "kicad"
+
+      "font-hack-nerd-font"
+      "font-maple-mono-nf"
     ];
   };
 }

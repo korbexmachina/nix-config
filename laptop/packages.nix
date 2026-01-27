@@ -22,20 +22,37 @@ with pkgs;
   ruff
 
   # [[ Rust ]]
-  bacon
+  bacon # Background rust code checker
+
+  # [[ Go ]]
+  go
 
   # [[ BEAM ]]
   gleam
   elixir
 
+  # [[ JAVA ]]
+  javaPackages.compiler.openjdk25
+
+  # [[ JavaScript ]]
+  nodejs
+
   # [[ LaTeX ]]
   texliveFull
 
   # [[ Tools ]]
+  wget
+  zola # SSG
+  ripgrep
+  fzf
+  ffmpeg
+  mprocs # Interactive, parallel command runner
   nh # Yet another nix helper
   tmux
   starship # Prompt
-  fastfetch
+  fastfetch # Used as a back-end for hyfetch
+  macchina # Used as a back-end for hyfetch
+  hyfetch
   zathura # PDF Viewer
   xh # curl, but nicer
   just # Project tooling
@@ -51,10 +68,26 @@ with pkgs;
   git-filter-repo
   pandoc
   opentofu # IaC
+  glow # CLI markdown rendering
+  iina # Media player
+  # basalt # Obsidian TUI
+  obsidian
+  offpunk # Command line browser - Web, Gemini, & Gopher
+  hledger
+  hledger-ui
+  hledger-fmt
+  kalker
+  fend
+  calcure
+  astroterm
 
   # [[ Containers ]]
   podman
   podman-tui
+
+  # [[ Automation ]]
+  n8n
+  opencode
 
   # [[ Fonts ]]
   nerd-fonts.jetbrains-mono
@@ -65,6 +98,8 @@ with pkgs;
   # [[ Misc. ]]
   amfora # Gemini browser
   vesktop # Discord client
-  zed-editor # GUI Editor, only use when absolutely necessary
+  discord
+  # zed-editor # GUI Editor, only use when absolutely necessary
   sqlite
+  zoom-us
 ]

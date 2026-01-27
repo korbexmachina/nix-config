@@ -1,6 +1,7 @@
 {
   pkgs,
   nix-darwin,
+  nixpkgs,
   ...
 }@args:
 {
@@ -10,6 +11,8 @@
 
   system.primaryUser = "korben";
   system.stateVersion = 6;
+
+  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = import ./packages.nix args;
 
@@ -112,13 +115,13 @@
       ];
     };
   };
-  services.jankyborders = {
-    enable = true;
-    active_color = "0xffb4befe";
-    inactive_color = "0xff6c7086";
-    hidpi = true;
-    order = "above";
-  };
+  # services.jankyborders = {
+  #   enable = true;
+  #   active_color = "0xffb4befe";
+  #   inactive_color = "0xff6c7086";
+  #   hidpi = true;
+  #   order = "above";
+  # };
   services.sketchybar.enable = true;
 
   # Necessary for using flakes on this system.
