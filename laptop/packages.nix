@@ -11,13 +11,19 @@ with pkgs;
   sketchybar # Status bar
 
   # [[ Nix ]]
-  nixfmt-rfc-style
+  nixfmt
   nixd
+
+  # [[ OCaml ]]
+  opam
+
+  # [[ Lean ]]
+  elan
 
   # [[ Python ]]
   python312
-  python312Packages.python-lsp-server
-  pipx
+  # python312Packages.python-lsp-server
+  # pipx
   uv
   ruff
 
@@ -29,7 +35,8 @@ with pkgs;
 
   # [[ BEAM ]]
   gleam
-  elixir
+  beamPackages.elixir
+  beamPackages.erlang
 
   # [[ JAVA ]]
   javaPackages.compiler.openjdk25
@@ -41,8 +48,11 @@ with pkgs;
   texliveFull
 
   # [[ Tools ]]
+  lima
+  pi-coding-agent
   wget
   zola # SSG
+  # direnv
   ripgrep
   fzf
   ffmpeg
@@ -53,7 +63,6 @@ with pkgs;
   fastfetch # Used as a back-end for hyfetch
   macchina # Used as a back-end for hyfetch
   hyfetch
-  zathura # PDF Viewer
   xh # curl, but nicer
   just # Project tooling
   comma # Run one off commands without installing
@@ -86,7 +95,7 @@ with pkgs;
   podman-tui
 
   # [[ Automation ]]
-  n8n
+  # n8n
   opencode
 
   # [[ Fonts ]]
@@ -97,8 +106,7 @@ with pkgs;
 
   # [[ Misc. ]]
   amfora # Gemini browser
-  vesktop # Discord client
-  discord
+  # vesktop # Discord client
   # zed-editor # GUI Editor, only use when absolutely necessary
   sqlite
   zoom-us
