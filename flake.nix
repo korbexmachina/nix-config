@@ -13,6 +13,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    late.url = "github:mpiorowski/late-sh";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       self,
       nix-darwin,
       nixpkgs,
+      late,
       ...
     }:
     {
@@ -34,7 +36,7 @@
       nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
       # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
+      stdenv.hostPlatform.system.configurationRevision = self.rev or self.dirtyRev or null;
 
       darwinConfigurations."Korbens-MacBook-Pro" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit inputs; };
@@ -42,6 +44,7 @@
         modules = [
           ./laptop/configuration.nix
           ./laptop/brew.nix
+          ./laptop/packages.nix
         ];
       };
 

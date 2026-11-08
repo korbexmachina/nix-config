@@ -4,17 +4,17 @@
     onActivation.cleanup = "uninstall";
     caskArgs.no_quarantine = true;
     taps = [
-      # "yakitrak/yakitrak"
-      "arcboxlabs/tap"
+      # "arcboxlabs/tap"
+      "can1357/tap"
     ];
     brews = [
+      "omp"
       "xcodegen"
       "atuin"
       "imagemagick"
       "rbenv"
       "container"
       "hugo"
-      # "yakitrak/yakitrak/obsidian-cli"
     ];
     casks = [
       # Productivity
@@ -37,12 +37,14 @@
       "handbrake-app"
       "ghostty"
       "vscodium"
-      "arcboxlabs/tap/arcbox"
+      # "arcboxlabs/tap/arcbox"
       "osaurus"
       # "openclaw"
+      "chatgpt"
 
       # VPN
       "mullvad-vpn"
+      "protonvpn"
 
       # Browsers
       "mullvad-browser"
@@ -57,14 +59,15 @@
       "epic-games"
       "gog-galaxy"
       "ollama-app"
-      "whisky"
-      "freetube"
+      "wallspace"
+      # "dockspace"
 
       # Social
       "zulip"
       "element"
       "signal"
       "vesktop"
+      "simplex"
 
       # CAD
       "kicad"

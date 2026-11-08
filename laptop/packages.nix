@@ -1,113 +1,121 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 with pkgs;
-[
-  # [[ Essentials ]]
-  neovim # The best text editor
-  wezterm
-  vim
+{
+  environment.systemPackages = with pkgs; [
+    # [[ Essentials ]]
+    neovim # The best text editor
+    wezterm
+    vim
 
-  # [[ MacOS ]]
-  aerospace # Tiling WM
-  sketchybar # Status bar
+    # [[ MacOS ]]
+    aerospace # Tiling WM
+    sketchybar # Status bar
 
-  # [[ Nix ]]
-  nixfmt
-  nixd
+    # [[ Nix ]]
+    nixfmt
+    nixd
 
-  # [[ OCaml ]]
-  opam
+    # [[ OCaml ]]
+    opam
 
-  # [[ Lean ]]
-  elan
+    # [[ Lean ]]
+    elan
 
-  # [[ Python ]]
-  python312
-  # python312Packages.python-lsp-server
-  # pipx
-  uv
-  ruff
+    # [[ Python ]]
+    python312
+    # python312Packages.python-lsp-server
+    # pipx
+    uv
+    ruff
 
-  # [[ Rust ]]
-  bacon # Background rust code checker
+    # [[ Rust ]]
+    bacon # Background rust code checker
 
-  # [[ Go ]]
-  go
+    # [[ Go ]]
+    go
 
-  # [[ BEAM ]]
-  gleam
-  beamPackages.elixir
-  beamPackages.erlang
+    # [[ BEAM ]]
+    gleam
+    beamPackages.elixir
+    beamPackages.erlang
 
-  # [[ JAVA ]]
-  javaPackages.compiler.openjdk25
+    # [[ JAVA ]]
+    javaPackages.compiler.openjdk25
 
-  # [[ JavaScript ]]
-  nodejs
+    # [[ JavaScript ]]
+    nodejs
 
-  # [[ LaTeX ]]
-  texliveFull
+    # [[ LaTeX ]]
+    texliveFull
 
-  # [[ Tools ]]
-  lima
-  pi-coding-agent
-  wget
-  zola # SSG
-  # direnv
-  ripgrep
-  fzf
-  ffmpeg
-  mprocs # Interactive, parallel command runner
-  nh # Yet another nix helper
-  tmux
-  starship # Prompt
-  fastfetch # Used as a back-end for hyfetch
-  macchina # Used as a back-end for hyfetch
-  hyfetch
-  xh # curl, but nicer
-  just # Project tooling
-  comma # Run one off commands without installing
-  lazygit
-  git
-  gh # GitHub CLI
-  gnupg
-  pinentry_mac
-  bat # Better cat
-  dust # Better du
-  lsd # lsdeluxe
-  git-filter-repo
-  pandoc
-  opentofu # IaC
-  glow # CLI markdown rendering
-  iina # Media player
-  # basalt # Obsidian TUI
-  obsidian
-  offpunk # Command line browser - Web, Gemini, & Gopher
-  hledger
-  hledger-ui
-  hledger-fmt
-  kalker
-  fend
-  calcure
-  astroterm
+    # [[ Tools ]]
+    sniffnet
+    lima
+    # pi-coding-agent
+    wget
+    zola # SSG
+    # direnv
+    ripgrep
+    fzf
+    ffmpeg
+    mprocs # Interactive, parallel command runner
+    nh # Yet another nix helper
+    tmux
+    starship # Prompt
+    fastfetch # Used as a back-end for hyfetch
+    macchina # Used as a back-end for hyfetch
+    hyfetch
+    xh # curl, but nicer
+    just # Project tooling
+    comma # Run one off commands without installing
+    lazygit
+    git
+    gh # GitHub CLI
+    gnupg
+    pinentry_mac
+    bat # Better cat
+    dust # Better du
+    lsd # lsdeluxe
+    git-filter-repo
+    pandoc
+    opentofu # IaC
+    glow # CLI markdown rendering
+    iina # Media player
+    # basalt # Obsidian TUI
+    obsidian
+    offpunk # Command line browser - Web, Gemini, & Gopher
+    hledger
+    hledger-ui
+    hledger-fmt
+    kalker
+    # fend
+    calcure
+    astroterm
+    tytools
 
-  # [[ Containers ]]
-  podman
-  podman-tui
+    # [[ Containers ]]
+    podman
+    podman-tui
 
-  # [[ Automation ]]
-  # n8n
-  opencode
+    # [[ Automation ]]
+    # n8n
+    opencode
 
-  # [[ Fonts ]]
-  nerd-fonts.jetbrains-mono
-  nerd-fonts.hack
-  nerd-fonts.iosevka
-  nerd-fonts.fira-code
+    # [[ Fonts ]]
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
+    nerd-fonts.iosevka
+    nerd-fonts.fira-code
 
-  # [[ Misc. ]]
-  amfora # Gemini browser
-  # vesktop # Discord client
-  # zed-editor # GUI Editor, only use when absolutely necessary
-  sqlite
-  zoom-us
-]
+    # [[ Misc. ]]
+    tailscale
+    tailscale-gui
+    amfora # Gemini browser
+    # vesktop # Discord client
+    # zed-editor # GUI Editor, only use when absolutely necessary
+    sqlite
+    zoom-us
+    inputs.late.packages.${pkgs.system}.late # TUI social app
+    linear
+  ];
+}

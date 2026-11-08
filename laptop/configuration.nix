@@ -2,6 +2,7 @@
   pkgs,
   nix-darwin,
   nixpkgs,
+  late,
   ...
 }@args:
 {
@@ -14,7 +15,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = import ./packages.nix args;
+  # environment.systemPackages = import ./packages.nix args;
 
   # Enable touch-id authentication for sudo
   security.pam.services.sudo_local = {
@@ -48,12 +49,21 @@
       default-root-container-layout = "tiles";
       key-mapping.preset = "qwerty";
       gaps = {
-        inner.horizontal = 10;
-        inner.vertical = 10;
-        outer.left = 10;
-        outer.bottom = 10;
-        outer.top = 10;
-        outer.right = 10;
+        inner = {
+          horizontal = 10;
+          vertical = 10;
+        };
+        outer = {
+          left = 10;
+          bottom = 10;
+          top = [
+            { monitor."Built-In Retina Display" = 10; }
+            { monitor."DELL U2723QE" = 40; }
+            { monitor."VG245" = 40; }
+            10
+          ];
+          right = 10;
+        };
       };
       mode.main.binding = {
 
@@ -87,6 +97,7 @@
         alt-7 = "workspace 7";
         alt-8 = "workspace 8";
         alt-9 = "workspace 9";
+        alt-0 = "workspace 10";
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
         alt-shift-1 = "move-node-to-workspace 1";
@@ -98,6 +109,7 @@
         alt-shift-7 = "move-node-to-workspace 7";
         alt-shift-8 = "move-node-to-workspace 8";
         alt-shift-9 = "move-node-to-workspace 9";
+        alt-shift-0 = "move-node-to-workspace 10";
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
         alt-tab = "workspace-back-and-forth";
